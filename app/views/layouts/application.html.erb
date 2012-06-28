@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voteup</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class = "notice" >
+ <%= params[:notice] %>
+</p>
+
+<div id="voter_nav">
+  <% if voter_signed_in? %>
+    Signed in as <%= current_voter.email %>. Not you?
+    <%= link_to "Sign out", destroy_voter_session_path, :method => :delete %>
+  <% elsif admin_signed_in? %>
+    Signed in as <%= current_admin.email %>. Not you?
+    <%= link_to "Admin Sign out", destroy_admin_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign up", new_voter_registration_path %> or <%= link_to "sign in", new_voter_session_path %>
+  <% end %>
+</div>
+  
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

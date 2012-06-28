@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to "Cast Vote for #{@candidate.name}", :action => 'vote_up_voter', :id=> @candidate.id %>
+
+
+<br />
+<br />
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> 
+<%= link_to 'Back', candidates_path %>
+

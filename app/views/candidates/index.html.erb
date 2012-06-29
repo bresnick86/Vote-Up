@@ -1,5 +1,8 @@
 <h1>Listing candidates</h1>
 
+
+<%= max_vote_count(@candidates) %>
+
 <table>
   <tr>
     <th></th>
@@ -14,6 +17,7 @@
      <td><%= candidate.votes_for %></td>
      <td><%= percentage_of_candidates(candidate) %></td>
      
+
 
 <% if admin_signed_in? %>
     <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>

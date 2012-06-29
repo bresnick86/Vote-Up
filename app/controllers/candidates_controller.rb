@@ -5,7 +5,7 @@ class CandidatesController < ApplicationController
 before_filter :voter_rights, :only => [:show]
 before_filter :keys_to_kingdom, :only => [:new,:create,:edit,:update,:destroy]  
 
-
+ 
   def vote_up_voter
 	@candidate = Candidate.find(params[:id])
 			begin
@@ -17,7 +17,7 @@ before_filter :keys_to_kingdom, :only => [:new,:create,:edit,:update,:destroy]
 			end
   end
 
-  def vote_up_admin
+ def vote_up_admin
 	@candidate = Candidate.find(params[:id])
 			begin
 				current_admin.vote_for(@candidate)
@@ -26,7 +26,7 @@ before_filter :keys_to_kingdom, :only => [:new,:create,:edit,:update,:destroy]
 			else
 				redirect_to :action => :index
 			end
-  end
+ end
 
  	  
   def index

@@ -20,7 +20,7 @@
     Signed in as <%= current_admin.email %>. Not you?
     <%= link_to "Admin Sign out", destroy_admin_session_path, :method => :delete %>
   <% else %>
-    <%= link_to "Sign up", new_voter_registration_path %> or <%= link_to "sign in", new_voter_session_path %>
+    <%= link_to "Sign up", new_voter_registration_path %> or <%= link_to "sign in", new_voter_session_path %> or <%= link_to "Admin sign in", new_admin_session_path %>
   <% end %>
 </div>
   
